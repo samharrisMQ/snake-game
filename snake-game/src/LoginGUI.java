@@ -27,10 +27,10 @@ public class LoginGUI implements ActionListener {
         loginGui.setupGUI();
     }
 
-    public LoginGUI() {
+     public LoginGUI() {
         panel = new JPanel();
         frame = new JFrame();
-
+ 
         user = new JLabel("user:");
         userText = new JTextField();
 
@@ -115,7 +115,8 @@ public class LoginGUI implements ActionListener {
             new Timer(3000, new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                          snakeGUI gameGui = new snakeGUI(panel);  
-                         gameGui.startGame();             
+                         gameGui.startGame();   
+                         gameGui.drawComponents(null);          
                 }
             }).start(); 
         } else if(user.equals("") || password.equals("")) { //invalid user/pass
@@ -136,11 +137,11 @@ public class LoginGUI implements ActionListener {
             new Timer(3000, new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                          tetrisGUI tetrisGui = new tetrisGUI(panel);  
-                         tetrisGui.startGame();             
+                         tetrisGui.startGame();            
                 }
             }).start();
         } else { //incorrect login
             success.setText("Incorrect username/password");
         }
-    }
+    } 
 }
